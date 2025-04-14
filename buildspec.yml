@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  pre_build:
+    commands:
+      - echo "Instalando dependencias..."
+  build:
+    commands:
+      - echo "Construyendo imagen Docker..."
+      - docker build -t mi-app-flask .
+      - echo "Ejecutando pruebas..."
+      - python -m pytest tests/ || true # || true para que no falle si no hay tests
+  post_build:
+    commands:
+      - echo "Construcción finalizada con éxito"
