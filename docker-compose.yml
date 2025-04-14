@@ -1,0 +1,8 @@
+# Corregí el c´dogio y le añadí un buil y port para que tuviera una buena relación con dependencias 
+
+version: '3.8'
+services:
+  web:
+    build: ./app
+    ports:
+      - "5000:5000"
